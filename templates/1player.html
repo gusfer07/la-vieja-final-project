@@ -3,7 +3,7 @@
 {% block landing %}
     <h2>Ingrese un nombre</h2>
     <form action="/1player" method="post">
-        <input type="text" placeholder="Ingresa tu nombre">
+        <input type="text" placeholder="Ingresa tu nombre" required name="player1" autocomplete="off">
         <button type="submit">JUGAR</button>
     </form>
 {% endblock %}
