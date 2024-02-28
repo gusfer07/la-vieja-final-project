@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>La Vieja</h1>
+    <form method="post" action="/">
+        <input type="submit" value="IA" name="IA">
+        <input type="submit" value="LOCAL" name="LOCAL">
+    </form>
+    {% block landing %} {% endblock %}
+{% endblock %}
