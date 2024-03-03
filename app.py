@@ -10,9 +10,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 flask_session.Session(app)
 
-# Variables Globales
-
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     if fl.request.method == "POST":
