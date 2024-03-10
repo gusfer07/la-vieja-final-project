@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Vieja</title>
-    <link rel="stylesheet" href="/static/gameLOCAL.css">
+    <link rel="stylesheet" href="/static/game.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon/site.webmanifest">
 </head>
 <body class="bg-[#0CC0DF] h-screen">
     <!-- Header -->
     <div class="bg-[#f5f5f5] h-20 w-full flex justify-between items-center px-6 mb-14">
-        <span class="text-[#0B5789] font-bold text-center text-3xl">Jugador 1</span>
+        <span class="text-[#0B5789] font-bold text-center text-3xl">{{player1}}</span>
         <div class="text-center">
             <img class="h-[60px] w-34" src="/static/logo.webp" alt="La Vieja">
         </div>
-        <span class="text-[#0B5789] font-bold text-center text-3xl">Jugador 2</span>
+        <span class="text-[#0B5789] font-bold text-center text-3xl">{{player2}}</span>
     </div>
     <div class="grid grid-cols-3 px-6">
         <div class="flex justify-start items-start space-x-4">
@@ -49,7 +53,7 @@
             <span id="contador">15</span>
         </div>
         <div class="flex justify-end items-end">
-            <form action="#">
+            <form action="/">
                 <button type="submit" class="bg-[#f5f5f5] h-10 w-28 rounded-lg font-bold text-xl text-[#0b6789]">Salir</button>
             </form>
         </div>

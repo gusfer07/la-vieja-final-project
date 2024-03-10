@@ -1,10 +1,23 @@
-{% extends "layout.html" %}
-
-{% block body %}
-    <h1>La Vieja</h1>
-    <form method="post" action="/">
-        <input type="submit" value="IA" name="IA">
-        <input type="submit" value="LOCAL" name="LOCAL">
-    </form>
-    {% block landing %} {% endblock %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>La Vieja</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/static/favicon/site.webmanifest">
+    </head>
+    <body>
+        <h1>La Vieja</h1>
+        <form action="/" method="post">
+            <h2>Ingrese el nombre del jugador 1</h2>
+            <input type="text" placeholder="Ingresa tu nombre" name="player1" required autocomplete="off">
+            <h2>Ingrese el nombre del jugador 2</h2>
+            <input type="text" placeholder="Ingresa tu nombre" name="player2" required autocomplete="off">
+            <button type="submit">JUGAR</button>
+        </form>
+    </body>
+</html>
+    
