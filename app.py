@@ -1,9 +1,6 @@
 import flask as fl
-from cs50 import SQL
 
 app = fl.Flask(__name__, template_folder="./templates")
-
-db = SQL("sqlite:///lavieja.db")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -20,12 +17,6 @@ def index():
         
         elif player1 == player2:
             return fl.redirect("/error")
-
-        if not db.execute("SELECT username FROM users WHERE username = ?;", player1):
-            db.execute("INSERT INTO users (username) VALUES (?);", player1)
-
-        elif not db.execute("SELECT username FROM users WHERE username = ?;", player2):
-            db.execute("INSERT INTO users (username) VALUES (?);", player2)
 
         url = fl.url_for("game", player1=player1, player2=player2, **fl.request.args)
 
