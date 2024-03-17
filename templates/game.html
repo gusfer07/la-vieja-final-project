@@ -120,7 +120,7 @@
     </div>
     <!--Footer-->
     <div class="grid grid-cols-3 px-6 mb-6">
-      <div id="turno" class="flex items-end space-x-4">
+      <div id="turno" class="flex items-end md:space-x-4">
         <span class="text-[#f5f5f5] font-bold text-3xl md:flex hidden"
           >Turno de:</span
         >
@@ -139,7 +139,7 @@
         <form action="/">
           <button
             type="submit"
-            class="bg-[#f5f5f5] h-10 w-28 rounded-lg font-bold text-xl text-[#0b6789]"
+            class="bg-[#f5f5f5] h-10 md:w-28 w-20 rounded-lg font-bold text-xl text-[#0b6789]"
           >
             Salir
           </button>
@@ -207,20 +207,20 @@
         if (turn == "O") {
           // Horizontal
           if (table[0] == "O" && table[1] == "O" && table[2] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
           } else if (table[3] == "O" && table[4] == "O" && table[5] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
           } else if (table[6] == "O" && table[7] == "O" && table[8] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
@@ -229,20 +229,20 @@
           // Vertical
 
           if (table[0] == "O" && table[3] == "O" && table[6] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
           } else if (table[1] == "O" && table[4] == "O" && table[7] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
           } else if (table[2] == "O" && table[5] == "O" && table[8] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
@@ -251,14 +251,14 @@
           // Diagonal
 
           if (table[0] == "O" && table[4] == "O" && table[8] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
           } else if (table[2] == "O" && table[4] == "O" && table[6] == "O") {
+            alert("Gano la O");
             setTimeout(function () {
-              alert("Gano la O");
               cleanTable();
             }, 1000);
             return "O";
@@ -267,61 +267,60 @@
           // Horizontal
 
           if (table[0] == "X" && table[1] == "X" && table[2] == "X") {
-            console.log("hola");
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           } else if (table[3] == "X" && table[4] == "X" && table[5] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           } else if (table[6] == "X" && table[7] == "X" && table[8] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           }
 
           // Vertical
 
           if (table[0] == "X" && table[3] == "X" && table[6] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           } else if (table[1] == "X" && table[4] == "X" && table[7] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           } else if (table[2] == "X" && table[5] == "X" && table[8] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           }
 
           // Diagonal
 
           if (table[0] == "X" && table[4] == "X" && table[8] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           } else if (table[2] == "X" && table[4] == "X" && table[6] == "X") {
+            alert("Gano la X");
             setTimeout(function () {
-              alert("Gano la X");
               cleanTable();
-            }, 1000);
+            }, 1300);
             return "X";
           }
         }
