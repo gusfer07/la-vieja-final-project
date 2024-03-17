@@ -1,412 +1,465 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Vieja</title>
-    <link rel="stylesheet" href="/static/game.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/static/favicon/site.webmanifest">
-</head>
-<body class="bg-[#0CC0DF] h-screen">
+    <link rel="stylesheet" href="/static/game.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/favicon/site.webmanifest" />
+  </head>
+  <body class="bg-[#0CC0DF]">
     <!-- Header -->
-    <div class="bg-[#f5f5f5] h-20 w-full flex justify-between items-center px-6 mb-14">
-        <span class="text-[#0B5789] font-bold text-center text-3xl">{{player1}}</span>
-        <div class="text-center">
-            <img class="h-[60px] w-34" src="/static/logo.webp" alt="La Vieja">
-        </div>
-        <span class="text-[#0B5789] font-bold text-center text-3xl">{{player2}}</span>
+    <div
+      class="bg-[#f5f5f5] h-20 w-full flex justify-between items-center px-6 mb-14"
+    >
+      <span class="text-[#0B5789] font-bold text-center md:text-3xl text-xl"
+        >{{player1}}</span
+      >
+      <div class="text-center">
+        <img
+          class="md:h-[60px] md:w-34 h-[50px] w-30"
+          src="/static/logo.webp"
+          alt="La Vieja"
+        />
+      </div>
+      <span class="text-[#0B5789] font-bold text-center md:text-3xl text-xl"
+        >{{player2}}</span
+      >
     </div>
-    <div class="grid grid-cols-3 px-6">
-        <div class="flex justify-start items-start space-x-4">
-            <img src="/static/equis.webp" alt="X">
-            <span id="xScore" class="text-[#f5f5f5] text-7xl font-bold mt-2">0</span>
+    <div class="grid grid-cols-1 px-6">
+      <!--Scores-->
+      <div class="flex justify-between items-center md:mb-0 mb-10">
+        <div class="flex justify-start items-center space-x-4 -mt-10">
+          <img
+            src="/static/equis.webp"
+            alt="X"
+            class="md:w-24 md:h-24 w-16 h-16"
+          />
+          <span id="xScore" class="text-[#f5f5f5] text-7xl font-bold mt-2"
+            >0</span
+          >
         </div>
-        <!--Tablero-->
-        <div class="flex justify-center mb-14">
-            <div id="table" class="grid grid-cols-3 gap-2">
-                <button id="box1" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box2" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box3" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box4" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box5" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box6" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box7" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box8" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-                <button id="box9" name="" class="text-center p-2 box border-2 w-24 h-24 rounded-3xl bg-[#F5F5F5]"></button>
-            </div>
+        <div class="flex justify-end items-center space-x-4 -mt-10">
+          <span id="oScore" class="text-[#f5f5f5] text-7xl font-bold mt-2"
+            >0</span
+          >
+          <img
+            src="/static/circulo.webp"
+            alt="O"
+            class="scale-105 md:w-24 md:h-24 w-16 h-16"
+          />
         </div>
-        <div class="flex justify-end items-start space-x-4">
-            <span id="oScore" class="text-[#f5f5f5] text-7xl font-bold mt-2">0</span>
-            <img src="/static/circulo.webp" alt="O" class="scale-105">
+      </div>
+      <!--Tablero-->
+      <div class="flex justify-center xl:mb-12 md:mb-0 md:-mt-6 mb-10">
+        <div id="table" class="grid grid-cols-3 gap-2">
+          <button
+            id="box1"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box2"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box3"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box4"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box5"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box6"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box7"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box8"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
+          <button
+            id="box9"
+            name=""
+            class="text-center p-2 box border-2 xl:w-24 xl:h-24 w-20 h-20 rounded-3xl bg-[#F5F5F5]"
+          ></button>
         </div>
+      </div>
     </div>
     <!--Footer-->
-    <div class="grid grid-cols-3 px-6">
-        <div id="turno" class="flex items-end space-x-4">
-            <span class="text-[#f5f5f5] font-bold text-3xl">Turno de:</span>
-            <img src="/static/equis.webp" alt="X" class="invisible">
-        </div>
-        <div class="flex text-center text-white text-6xl font-bold justify-center items-end">
-            <span id="contador">15</span>
-        </div>
-        <div class="flex justify-end items-end">
-            <form action="/">
-                <button type="submit" class="bg-[#f5f5f5] h-10 w-28 rounded-lg font-bold text-xl text-[#0b6789]">Salir</button>
-            </form>
-        </div>
+    <div class="grid grid-cols-3 px-6 mb-6">
+      <div id="turno" class="flex items-end space-x-4">
+        <span class="text-[#f5f5f5] font-bold text-3xl md:flex hidden"
+          >Turno de:</span
+        >
+        <img
+          src="/static/equis.webp"
+          alt="X"
+          class="md:w-24 md:h-24 w-20 h-20 invisible"
+        />
+      </div>
+      <div
+        class="flex text-center text-white text-6xl font-bold justify-center items-end"
+      >
+        <span id="contador">15</span>
+      </div>
+      <div class="flex justify-end items-end">
+        <form action="/">
+          <button
+            type="submit"
+            class="bg-[#f5f5f5] h-10 w-28 rounded-lg font-bold text-xl text-[#0b6789]"
+          >
+            Salir
+          </button>
+        </form>
+      </div>
     </div>
-
     <script>
-        // Jugadores
-        xScore = 0
-        oScore = 0
+      // Jugadores
+      xScore = 0;
+      oScore = 0;
 
-        // Impar = 0 par = X
-        let counterGame = 1
+      // Impar = 0 par = X
+      let counterGame = 1;
 
-        let turnGame = turnSelector(counterGame)
-        turnView(counterGame)
+      let turnGame = turnSelector(counterGame);
+      turnView(counterGame);
 
-        // Incio del juego
-        document.querySelectorAll(".box").forEach(function(box) {
-            box.addEventListener("click", round, event)
-        })
+      // Incio del juego
+      document.querySelectorAll(".box").forEach(function (box) {
+        box.addEventListener("click", round, event);
+      });
 
-        function round(event) {
+      function round(event) {
+        // Si juega en una casilla vacia
+        if (event.target.name == "") {
+          if (turnGame == "X") {
+            document.getElementById(
+              event.target.id
+            ).innerHTML = `<img src="/static/equis.webp" alt="X">`;
+            document.getElementById(event.target.id).name = "X";
+          } else if (turnGame == "O") {
+            document.getElementById(
+              event.target.id
+            ).innerHTML = `<img src="/static/circulo.webp" alt="O" class="scale-105">`;
+            document.getElementById(event.target.id).name = "O";
+          }
+        }
 
-            // Si juega en una casilla vacia
-            if (event.target.name == "") {
-                if (turnGame == "X")
-                {
-                    document.getElementById(event.target.id).innerHTML = `<img src="/static/equis.webp" alt="X">`
-                    document.getElementById(event.target.id).name = "X"
+        // Verificar si gano
+        if (winCheck(turnGame) == "O") {
+          oScore++;
+          document.querySelector("#oScore").innerHTML = oScore;
+        } else if (winCheck(turnGame) == "X") {
+          xScore++;
+          document.querySelector("#xScore").innerHTML = xScore;
+        }
+
+        // Inicio y detencion del contador
+        stopTimer();
+        startTimer();
+
+        // Turno siguiente
+        counterGame++;
+        turnGame = turnSelector(counterGame);
+        turnView(counterGame);
+      }
+
+      function winCheck(turn) {
+        // Inspeccionar tablero
+        let table = [];
+        document.querySelectorAll(".box").forEach(function (box) {
+          table.push(box.name);
+        });
+
+        if (turn == "O") {
+          // Horizontal
+          if (table[0] == "O" && table[1] == "O" && table[2] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          } else if (table[3] == "O" && table[4] == "O" && table[5] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          } else if (table[6] == "O" && table[7] == "O" && table[8] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          }
+
+          // Vertical
+
+          if (table[0] == "O" && table[3] == "O" && table[6] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          } else if (table[1] == "O" && table[4] == "O" && table[7] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          } else if (table[2] == "O" && table[5] == "O" && table[8] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          }
+
+          // Diagonal
+
+          if (table[0] == "O" && table[4] == "O" && table[8] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          } else if (table[2] == "O" && table[4] == "O" && table[6] == "O") {
+            setTimeout(function () {
+              alert("Gano la O");
+              cleanTable();
+            }, 1000);
+            return "O";
+          }
+        } else if (turn == "X") {
+          // Horizontal
+
+          if (table[0] == "X" && table[1] == "X" && table[2] == "X") {
+            console.log("hola");
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          } else if (table[3] == "X" && table[4] == "X" && table[5] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          } else if (table[6] == "X" && table[7] == "X" && table[8] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          }
+
+          // Vertical
+
+          if (table[0] == "X" && table[3] == "X" && table[6] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          } else if (table[1] == "X" && table[4] == "X" && table[7] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          } else if (table[2] == "X" && table[5] == "X" && table[8] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          }
+
+          // Diagonal
+
+          if (table[0] == "X" && table[4] == "X" && table[8] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          } else if (table[2] == "X" && table[4] == "X" && table[6] == "X") {
+            setTimeout(function () {
+              alert("Gano la X");
+              cleanTable();
+            }, 1000);
+            return "X";
+          }
+        }
+
+        // Empate
+        let fill = 0;
+        table.forEach(function (name) {
+          if (name == "O" || name == "X") {
+            fill++;
+          }
+        });
+
+        if (fill == 9) {
+          setTimeout(function () {
+            alert("Empate");
+            cleanTable();
+          }, 1000);
+          return "E";
+        }
+      }
+
+      function turnView(counter) {
+        let turnoJuego = turnSelector(counter);
+
+        if (turnoJuego == "X") {
+          document.querySelector(
+            "#turno"
+          ).innerHTML = `<span class="text-[#f5f5f5] font-bold text-3xl md:flex hidden"
+          >Turno de:</span
+        >
+        <img
+          src="/static/equis.webp"
+          alt="X"
+          class="md:w-24 md:h-24 w-20 h-20"
+        />`;
+        } else if (turnoJuego == "O") {
+          document.querySelector(
+            "#turno"
+          ).innerHTML = `<span class="text-[#f5f5f5] font-bold text-3xl md:flex hidden"
+          >Turno de:</span
+        >
+        <img
+          src="/static/circulo.webp"
+          alt="X"
+          class="md:w-24 md:h-24 w-20 h-20"
+        />`;
+        }
+      }
+
+      function turnSelector(counter) {
+        // impar = 0 par = X
+
+        if (counter % 2 != 0) {
+          counter++;
+          return "O";
+        } else {
+          counter++;
+          return "X";
+        }
+      }
+
+      function cleanTable() {
+        let table = document.querySelectorAll(".box");
+
+        for (let i = 0; i < 9; i++) {
+          table[i].innerHTML = "";
+          table[i].name = "";
+        }
+
+        stopTimer();
+      }
+
+      // Timer variables
+      const TIME = 15;
+      let c = TIME;
+
+      let status = false;
+      let intervalo;
+      let $contador = document.getElementById("contador");
+
+      function startTimer() {
+        if (status == false) {
+          c = TIME;
+          status = true;
+          timer();
+        }
+      }
+
+      function timer() {
+        if (status == true) {
+          if (c >= 0) {
+            $contador.innerHTML = c;
+            c--;
+            intervalo = setTimeout(timer, 1000);
+          } else {
+            // lo que pasara si se acaba el tiempo
+            stopTimer();
+
+            // Poner el caracter en una casilla
+            let c = 1;
+            document.querySelectorAll(".box").forEach(function (box) {
+              if (box.name == "") {
+                if (c == 1) {
+                  if (turnGame == "X") {
+                    document.getElementById(
+                      box.id
+                    ).innerHTML = `<img src="/static/equis.webp" alt="X">`;
+                    document.getElementById(box.id).name = "X";
+                  } else if (turnGame == "O") {
+                    document.getElementById(
+                      box.id
+                    ).innerHTML = `<img src="/static/circulo.webp" alt="O" class="scale-105">`;
+                    document.getElementById(box.id).name = "O";
+                  }
+                  c++;
                 }
+              }
+            });
 
-                else if (turnGame == "O")
-                {
-                    document.getElementById(event.target.id).innerHTML = `<img src="/static/circulo.webp" alt="O" class="scale-105">`
-                    document.getElementById(event.target.id).name = "O"
-                }
-            }
-
-            // Verificar si gano
-            if (winCheck(turnGame) == "O") {
-                oScore++
-                document.querySelector("#oScore").innerHTML = oScore
-            }
-            else if (winCheck(turnGame) == "X") {
-                xScore++
-                document.querySelector("#xScore").innerHTML = xScore
-            }
-        
-
-            // Inicio y detencion del contador
-            stopTimer()
-            startTimer()
+            // Verificar si gano (omaga)
+            winCheck(turnGame);
 
             // Turno siguiente
-            counterGame++
-            turnGame = turnSelector(counterGame)
-            turnView(counterGame)
-            
+            counterGame++;
+            turnGame = turnSelector(counterGame);
+            turnView(counterGame);
+
+            // Iniciar contador
+            startTimer();
+          }
         }
+      }
 
-        function winCheck(turn) {
-            // Inspeccionar tablero
-            let table = []
-            document.querySelectorAll(".box").forEach(function(box) {
-                table.push(box.name)
-            })
-
-            if (turn == "O")
-            {   
-                // Horizontal
-                if (table[0] == "O" && table[1] == "O" && table[2] == "O")
-                {   
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                    
-                }
-                else if (table[3] == "O" && table[4] == "O" && table[5] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                }
-                else if (table[6] == "O" && table[7] == "O" && table[8] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                }
-
-                // Vertical
-
-                if (table[0] == "O" && table[3] == "O" && table[6] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                }
-                else if (table[1] == "O" && table[4] == "O" && table[7] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                }
-                else if (table[2] == "O" && table[5] == "O" && table[8] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-
-                }
-
-                // Diagonal
-
-                if (table[0] == "O" && table[4] == "O" && table[8] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                }
-                else if (table[2] == "O" && table[4] == "O" && table[6] == "O")
-                {
-                    setTimeout(function () {
-                        alert("Gano la O")
-                        cleanTable()
-                    }, 1000)
-                    return "O"
-                }
-            }
-
-            else if (turn == "X")
-            {   
-                // Horizontal
-
-                if (table[0] == "X" && table[1] == "X" && table[2] == "X")
-                {   
-                    console.log("hola")
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-                }
-                else if (table[3] == "X" && table[4] == "X" && table[5] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-                }
-                else if (table[6] == "X" && table[7] == "X" && table[8] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-                }
-
-                // Vertical
-
-                if (table[0] == "X" && table[3] == "X" && table[6] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-                }
-                else if (table[1] == "X" && table[4] == "X" && table[7] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-                }
-                else if (table[2] == "X" && table[5] == "X" && table[8] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-
-                }
-
-                // Diagonal
-
-                if (table[0] == "X" && table[4] == "X" && table[8] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable()
-                    }, 1000)
-                    return "X"
-                }
-                else if (table[2] == "X" && table[4] == "X" && table[6] == "X")
-                {
-                    setTimeout(function () {
-                        alert("Gano la X")
-                        cleanTable() 
-                    }, 1000)
-                    return "X"
-                }
-
-            }
-
-            // Empate
-            let fill = 0
-            table.forEach(function(name) {
-                if (name == "O" || name == "X") {
-                    fill++
-                }
-            })
-
-            if (fill == 9) {
-                setTimeout(function () {
-                    alert("Empate")
-                    cleanTable()
-                }, 1000)
-                return "E"
-            }
-        }
-
-        function turnView(counter) 
-        {   
-
-            let turnoJuego = turnSelector(counter)
-
-            if (turnoJuego == "X")
-            {
-                document.querySelector("#turno").innerHTML = `<span class="text-[#f5f5f5] font-bold text-3xl">Turno de:</span><img src="/static/equis.webp" alt="X">`
-            }
-            else if (turnoJuego == "O")
-            {
-                document.querySelector("#turno").innerHTML = `<span class="text-[#f5f5f5] font-bold text-3xl">Turno de:</span><img src="/static/circulo.webp" alt="O">`
-            }
-        }
-        
-        function turnSelector(counter)
-        {   
-            // impar = 0 par = X
-
-            if (counter % 2 != 0) 
-            {   
-                counter++
-                return "O"
-            }
-            else
-            {   
-                counter++
-                return "X"   
-            }
-        }
-
-        function cleanTable() {
-
-            let table = document.querySelectorAll(".box")
-
-            for (let i = 0; i < 9; i++)
-            {
-                table[i].innerHTML = ""
-                table[i].name = ""
-            }
-
-            stopTimer()
-
-        }
-
-        // Timer variables
-        const TIME = 15
-        let c = TIME
-        
-        let status = false
-        let intervalo
-        let $contador = document.getElementById("contador")
-
-        function startTimer() {
-            if (status == false) {
-                c = TIME
-                status = true
-                timer()
-            }
-        }
-        
-        function timer() {
-            if (status == true) {
-                if (c >= 0) {
-                    $contador.innerHTML = c
-                    c--
-                    intervalo = setTimeout(timer, 1000)
-                }
-                else {
-                    // lo que pasara si se acaba el tiempo
-                    stopTimer()
-
-                    // Poner el caracter en una casilla
-                    let c = 1
-                    document.querySelectorAll(".box").forEach(function(box) {
-                        if (box.name == "") {
-                            if (c == 1) {
-                                if (turnGame == "X")
-                                {
-                                    document.getElementById(box.id).innerHTML = `<img src="/static/equis.webp" alt="X">`
-                                    document.getElementById(box.id).name = "X"
-                                }
-
-                                else if (turnGame == "O")
-                                {
-                                    document.getElementById(box.id).innerHTML = `<img src="/static/circulo.webp" alt="O" class="scale-105">`
-                                    document.getElementById(box.id).name = "O"
-                                }
-                                c++
-                            }
-                        }
-                    })
-
-                    // Verificar si gano (omaga)
-                    winCheck(turnGame)
-
-                    // Turno siguiente
-                    counterGame++
-                    turnGame = turnSelector(counterGame)
-                    turnView(counterGame)
-
-                    // Iniciar contador
-                    startTimer()
-                }
-            }
-        }
-
-        function stopTimer() {
-            status = false
-            clearTimeout(intervalo)
-            $contador.innerHTML = TIME
-        }
-
+      function stopTimer() {
+        status = false;
+        clearTimeout(intervalo);
+        $contador.innerHTML = TIME;
+      }
     </script>
-</body>
+  </body>
 </html>
