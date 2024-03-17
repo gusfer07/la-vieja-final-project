@@ -49,3 +49,6 @@ def game():
 @app.route("/error")
 def error():
     return fl.render_template("error.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)

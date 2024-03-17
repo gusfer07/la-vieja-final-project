@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La Vieja</title>
-    <link rel="stylesheet" href="/static/game.css" />
+    <link rel="stylesheet" href="/static/css/game.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -35,7 +35,7 @@
       <div class="text-center">
         <img
           class="md:h-[60px] md:w-34 h-[50px] w-30"
-          src="/static/logo.webp"
+          src="/static/img/logo.webp"
           alt="La Vieja"
         />
       </div>
@@ -48,7 +48,7 @@
       <div class="flex justify-between items-center md:mb-0 mb-10">
         <div class="flex justify-start items-center space-x-4 -mt-10">
           <img
-            src="/static/equis.webp"
+            src="/static/img/equis.webp"
             alt="X"
             class="md:w-24 md:h-24 w-16 h-16"
           />
@@ -61,7 +61,7 @@
             >0</span
           >
           <img
-            src="/static/circulo.webp"
+            src="/static/img/circulo.webp"
             alt="O"
             class="scale-105 md:w-24 md:h-24 w-16 h-16"
           />
@@ -125,7 +125,7 @@
           >Turno de:</span
         >
         <img
-          src="/static/equis.webp"
+          src="/static/img/equis.webp"
           alt="X"
           class="md:w-24 md:h-24 w-20 h-20 invisible"
         />
@@ -168,12 +168,12 @@
           if (turnGame == "X") {
             document.getElementById(
               event.target.id
-            ).innerHTML = `<img src="/static/equis.webp" alt="X">`;
+            ).innerHTML = `<img src="/static/img/equis.webp" alt="X">`;
             document.getElementById(event.target.id).name = "X";
           } else if (turnGame == "O") {
             document.getElementById(
               event.target.id
-            ).innerHTML = `<img src="/static/circulo.webp" alt="O" class="scale-105">`;
+            ).innerHTML = `<img src="/static/img/circulo.webp" alt="O" class="scale-105">`;
             document.getElementById(event.target.id).name = "O";
           }
         }
@@ -353,7 +353,7 @@
           >Turno de:</span
         >
         <img
-          src="/static/equis.webp"
+          src="/static/img/equis.webp"
           alt="X"
           class="md:w-24 md:h-24 w-20 h-20"
         />`;
@@ -364,7 +364,7 @@
           >Turno de:</span
         >
         <img
-          src="/static/circulo.webp"
+          src="/static/img/circulo.webp"
           alt="X"
           class="md:w-24 md:h-24 w-20 h-20"
         />`;
@@ -428,12 +428,12 @@
                   if (turnGame == "X") {
                     document.getElementById(
                       box.id
-                    ).innerHTML = `<img src="/static/equis.webp" alt="X">`;
+                    ).innerHTML = `<img src="/static/img/equis.webp" alt="X">`;
                     document.getElementById(box.id).name = "X";
                   } else if (turnGame == "O") {
                     document.getElementById(
                       box.id
-                    ).innerHTML = `<img src="/static/circulo.webp" alt="O" class="scale-105">`;
+                    ).innerHTML = `<img src="/static/img/circulo.webp" alt="O" class="scale-105">`;
                     document.getElementById(box.id).name = "O";
                   }
                   c++;
